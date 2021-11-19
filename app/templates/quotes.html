@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="row justify-content-center">
+    <div class="col-2 ps-5 ms-5">
+      <form class="form-inline" action="{{ url_for('search', symbol=symbol) }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="col form-group ">
+                <fieldset>
+                    {{ form.symbol.label }}
+                    {{ form.symbol(class='form-control', placeholder='Enter Coin Symbol') }}
+                  </fieldset>
+              </div>
+            </div>
+            <div class="col-1 pt-4 pb-3 justify-content-center">
+                {{ form.submit(class='btn btn-sm btn-outline-primary') }}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class='container'>
+    <h1 class='display-5 pt-5 mt-3 text-center'> <i class="fas fa-coins"></i>  {{ name }}({{ symbol_2 }}) ~ Details: </h1>
+    <div class="row justify-content-evenly">
+        <div class="col-xl-3 col-lg-6 pt-5 mt-5 text-center">
+            <div class="card-header display-6" id="coin">
+                <i class="fas fa-chart-bar"></i> ({{ symbol_2 }}) Stats:
+            </div>
+            <p class='text-sm-center' id='updated'><i class="far fa-clock"></i>  Updated: (UTC){{ last_update }}</p>
+            <div class="card l-bg-blue-dark " >
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item l-bg-blue-dark"><u>Coin Price(USD)</u>: ${{ price }}</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>Coin Rank</u>: {{ rank }}</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>24h var.</u>: {{ change24 }}%</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>1h var</u>: {{ percent_change_1hr }}%</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>7d var.</u>: {{ percent_change_7d }}%</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>Volume 24h(USD)</u>: ${{ volume_24hr }}</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>Volume 24h var.</u>: {{ volume_change_24hr }}%</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>Market Cap</u>: ${{ market_cap }}</li>
+                    <li class="list-group-item l-bg-blue-dark"><u>Marekt Cap Dom</u>: {{ market_cap_dom }}%</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 text-end pt-5 mt-5">
+            <div class="card l-bg-blue-dark" >
+                <img src="{{ logo }}" class="card-img-top" alt="cryptocurrency">
+                <div class="card-body">
+                <h5 class="card-title">{{ name }}</h5>
+                <p class="card-text">{{ description }}</p>
+                </div>
+                <div class="card-body">
+                <a href="{{ website }}" class="card-link text-reset" target="_blank">{{ website }}</a><br><br>
+                <a href="{{ white_paper }}" class="card-link text-reset" target="_blank"> White Paper <i class="fas fa-scroll"></i></a>
+                <a href="{{ twitter }}" class="card-link text-reset" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="{{ reddit }}" class="card-link text-reset" target="_blank"><i class="fab fa-reddit"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-2 ps-5 ms-5">
+      <form class="form-inline" action="{{ url_for('search', symbol=symbol) }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="col form-group ">
+                <fieldset>
+                    {{ form.symbol.label }}
+                    {{ form.symbol(class='form-control', placeholder='Enter Coin Symbol') }}
+                  </fieldset>
+              </div>
+            </div>
+              <div class="col-1 pt-4 pb-3 justify-content-center">
+
+                {{ form.submit(class='btn btn-sm btn-outline-primary') }}
+              </div>
+      </form>
+    </div>
+</div>
+
+
+<div class="container">
+<div class='row pt-5 mt-5 mt-2'>
+    <div class='col-12 text-center'>
+        <h1 class='display-2 pb-5 pt-3' id='title'></i><em><strong>A Space Where Crypto Connects</strong></em></h1> 
+    </div>
+</div>
+<div class="row pb-5 mb-5 mt-5 justify-content-center">
+    <div class="col-6 text-center">
+        <p id='description1'>Crypto~VRSE is a space where all things crypto come together for your convenience. You can create a wallet to keep track of all your different assets, view up-to-date listings, and chat with friends to stay connected!</p>
+    </div>
+</div>
+<div class='row mb-5 pb-5 pt-5'>
+    <div class='col intro ps-5 ms-5 m-auto me-3 '>
+        <h3 id='description'>Track all your assets in one place with a personalized wallet and charts.</h3>
+    </div>
+    <div class='col mt-3 pt-3 ms-5 ps-5'>
+        <img src="../static/images/wallet.jpg" class="space img-fluid rounded-pill" alt="crypto_world" width='424'>
+    </div>
+</div>
+
+<div class='row mb-4 pb-5 pt-5'>
+    <div class='col ps-5 ms-5 pt-5 justify-content-end'>
+        <img src="../static/images/graph.jpg" class="space img-fluid rounded-pill" alt="crypto_world" width='400'>
+    </div>
+    <div class='col intro text-start m-auto'>
+        <h3 id='description'>Search cryptocurrencies, view up-to-date figures and graphs, and get insights into trending coins.</h3>
+    </div>
+</div>
+
+
+<div class='row mb-5 pb-5 pt-5'>
+    <div class='col intro ps-5 ms-5 m-auto text-center pe-5 me-5'>
+        <h3 id='description'>Stay connected with friends. <br>(coming soon)</h3>
+    </div>
+    <div class='col pt-3'>
+        <img src="../static/images/social.jpg" class="space img-fluid rounded-circle" alt="crypto_world">
+    </div>
+</div>
+</div>
+
+<div class='mt-5 pt-5'>
+{% include 'footer.html' %}
+</div>
+</div>
+
+
+
+{% endblock %}

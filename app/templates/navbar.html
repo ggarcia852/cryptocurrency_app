@@ -1,0 +1,80 @@
+
+<div class='row pt-4 pe-5'>   
+  <nav class="navbar navbar-expand-lg">
+    <div class='container-fluid'>
+      <a class="navbar-brand fs-4 text-light " href="/">
+        <img src="../static/images/thumbnail.jpg" alt="" width="150">
+      </a>
+     
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto ">
+
+          <li class="nav-item ">
+            <a class="nav-link text-light" href="/">-Home-</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item ">
+            <a class="nav-link text-light " href="/top100">-Top 100 Coins-</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          
+          {% if current_user.is_authenticated %}
+          <!-- <li class="nav-item">
+            <a class="nav-link text-light" href="/mywallet">-Trending-</a>
+          </li> -->
+          <li class="nav-item ">
+            <a class="nav-link text-light " href="#">-Trending-</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/mywallet">-View Wallet-</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          {% else %}
+        
+
+          <li class="nav-item">
+            <a class="nav-link text-light " href="/about">-About-</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a class="nav-link text-light " href="/contact">-Contact-</a>
+          </li>
+
+        </ul>
+          <a class="btn btn-sm btn-outline-primary my-2 my-sm-0 me-2" href="/login" role="button">Sign In</a>
+          <a class="btn btn-sm btn-outline-primary my-2 my-sm-0 me-2" href="/register" role="button">Create Account</a>  
+          
+          
+         
+        
+        
+          {% endif %}
+      </div>
+      <ul class="navbar-nav ms-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('my_account') }}">My Account</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/about">About</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/contact">Contact</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/mywallet">My Wallet</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+    
+
+        {% endif %}
+    </div>
+  </nav>
+</div> 
+
+
+

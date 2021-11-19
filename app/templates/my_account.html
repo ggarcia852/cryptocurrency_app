@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='row justify-content-center '>
+    <div class='col-6 mt-5 pt-5'>
+        <div class="card l-bg-blue-dark">
+            <div class="card-header">
+                <h4>Account Details:</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item l-bg-blue-dark"><b>Name: </b>{{ current_user.name }}</li>
+            <li class="list-group-item l-bg-blue-dark"><b>Username: </b>{{ current_user.username }}</li>
+            <li class="list-group-item l-bg-blue-dark"><b>Email: </b>{{ current_user.email }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class='mt-5 pt-5'>
+    {% include 'footer.html' %}
+</div>
+
+
+{% endblock content %}
