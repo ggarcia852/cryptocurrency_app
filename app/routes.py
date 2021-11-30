@@ -191,9 +191,18 @@ def search():
     desription = data[symbol]['description']
     logo = data[symbol]['logo']
     website = data[symbol]['urls']['website'][0]
-    twitter = data[symbol]['urls']['twitter'][0]
-    reddit = data[symbol]['urls']['reddit'][0]
-    white_paper = data[symbol]['urls']['technical_doc'][0]  
+    if data[symbol]['urls']['technical_doc']:
+        white_paper = data[symbol]['urls']['technical_doc'][0]  
+    else:
+        white_paper = data[symbol]['urls']['website'][0]
+    if data[symbol]['urls']['twitter']:
+        twitter = data[symbol]['urls']['twitter'][0]
+    else:
+        twitter = 'https://twitter.com'
+    if data[symbol]['urls']['reddit']:
+        reddit = data[symbol]['urls']['reddit'][0]
+    else: 
+        reddit = 'https://www.reddit.com' 
 
 
     return render_template('quotes.html', form=search_form, symbol=coin, symbol_2=symbol_2, name=name, description=desription, logo=logo, website=website, twitter=twitter, reddit=reddit, white_paper=white_paper, 
@@ -257,7 +266,7 @@ def mywallet():
         db.session.commit()
         flash (f'You have sussessfully added a new asset! Please go back wallet to see details.', 'primary')
 
-        return render_template('asset_details.html', symbol=symbol, amount=amount, asset=new_asset)
+        # return render_template('asset_details.html', symbol=symbol, amount=amount, asset=new_asset)
 
     return render_template('mywallet.html', title='My Wallet | Crypto~VRSE', wallet=wallet, total_coins=total_coins, form=form)
 
@@ -277,13 +286,24 @@ def asset_detail(wallet_id):
     results = request.json()
     data = results['data']
 
+   
     name = data[symbol]['name']
     desription = data[symbol]['description']
     logo = data[symbol]['logo']
     website = data[symbol]['urls']['website'][0]
-    twitter = data[symbol]['urls']['twitter'][0]
-    reddit = data[symbol]['urls']['reddit'][0]
-    white_paper = data[symbol]['urls']['technical_doc'][0]  
+    if data[symbol]['urls']['technical_doc']:
+        white_paper = data[symbol]['urls']['technical_doc'][0]  
+    else:
+        white_paper = data[symbol]['urls']['website'][0]
+    if data[symbol]['urls']['twitter']:
+        twitter = data[symbol]['urls']['twitter'][0]
+    else:
+        twitter = 'https://twitter.com'
+    if data[symbol]['urls']['reddit']:
+        reddit = data[symbol]['urls']['reddit'][0]
+    else: 
+        reddit = 'https://www.reddit.com'
+  
 
 
     ########### COIN DATA   ##########
