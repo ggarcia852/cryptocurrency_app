@@ -1,6 +1,6 @@
 # cryptocurrency_app
 
-Crypto~VRSE came to life as a passion project after a new interest in cryptocurrency to test my skills with Python and Flask using the Coinbase API. 
+Crypto~VRSE came to life as a passion project after a new interest in cryptocurrency to test my skills with Python and Flask using the Coin Market Cap API. 
 Aside from configuring the API and the different endpoints, I really enjoyed the UI/UX aspect of the project as I tried to encompass a theme for the uses of the app. Most of the styling was done using Bootstrap.
 
 The idea behind Crypto~VRSE is a space where all things crypto come together for your convenience. 
