@@ -264,9 +264,19 @@ def mywallet():
         new_asset = Wallet(symbol, amount, current_user.id)
         db.session.add(new_asset)
         db.session.commit()
-        flash (f'You have sussessfully added a new asset! Please go back wallet to see details.', 'primary')
+        flash (f'You have sussessfully added a new asset!', 'primary')
+        return redirect(url_for('mywallet'))
+        # global_url = base_url + '/v1/cryptocurrency/quotes/latest?convert=' + local_currency + '&symbol=' + symbol
 
-        # return render_template('asset_details.html', symbol=symbol, amount=amount, asset=new_asset)
+        # request = requests.get(global_url, headers=headers)
+        # results = request.json()
+
+        # data = results['data']
+        # coin = data[symbol]
+        # print(data)
+
+
+        # return render_template('mywallet.html', title='My Wallet | Crypto~VRSE', wallet=wallet, total_coins=total_coins, form=form, coin=coin)
 
     return render_template('mywallet.html', title='My Wallet | Crypto~VRSE', wallet=wallet, total_coins=total_coins, form=form)
 
