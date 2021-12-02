@@ -118,3 +118,7 @@ a.disabled {
     font-size: 12px;
 }
 
+.modal-backdrop.fade.in {
+    z-index: -1;
+}
+

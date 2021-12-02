@@ -2,26 +2,6 @@
 
 {% block content %}
 
-{#
-<div class="row justify-content-center">
-    <div class="col-2 ps-5 ms-5">
-      <form class="form-inline" action="{{ url_for('search', symbol=symbol) }}" method="post">
-            {{ form.hidden_tag() }}
-            <div class="col form-group ">
-                <fieldset>
-                    {{ form.symbol.label }}
-                    {{ form.symbol(class='form-control', placeholder='Enter Coin Symbol') }}
-                  </fieldset>
-              </div>
-            </div>
-              <div class="col-1 pt-4 pb-3 justify-content-center">
-
-                {{ form.submit(class='btn btn-sm btn-outline-primary') }}
-              </div>
-      </form>
-    </div>
-</div>
- #}
 
 
 <div class='container'>
@@ -64,34 +44,13 @@
                 </div>
             </div>
             <span class='text-center pb-3'>
-
                 <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     Delete Asset
                 </button>
-       
-                <!-- Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content ">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-dark" id="deleteModalLabel">Delete Asset: {{ asset.symbol }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-dark">
-                                Are you sure you want to delete {{ asset.symbol }} from your wallet? 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <form action="{{ url_for('delete_asset', wallet_id=asset.id) }}" method="post">
-                                    <input type="submit" class="btn btn-primary" value="Yes, I'm Sure">
-                                </form>   
-                            </div>
-                        </div>
-                    </div>   
-                </div>
             </span>
         </div>
     </div>
+
 
     <div class="col-xl-3 col-lg-6 text-end ">
         <div class="card l-bg-blue-dark" >
@@ -135,6 +94,29 @@
 </div>
 </div>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade " data-backdrop="false" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="deleteModalLabel">Delete Asset: {{ asset.symbol }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-dark">
+                Are you sure you want to delete {{ asset.symbol }} from your wallet? 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form action="{{ url_for('delete_asset', wallet_id=asset.id) }}" method="post">
+                    <input type="submit" class="btn btn-primary" value="Yes, I'm Sure">
+                </form>   
+            </div>
+        </div>
+    </div>   
+</div>  
 
 
 {% endblock %}
